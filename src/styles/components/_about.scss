@@ -1,7 +1,7 @@
 .about {
   background-color: $light;
   .container {
-    padding: 100px 0;
+    padding: 100px 20px;
   }
   .aboutimage {
     display: grid;
@@ -25,19 +25,27 @@
     }
   }
 
-  .aboutcontent {
-    flex-basis: 40%;
-    margin-left: 100px;
-    align-self: center;
-    button:nth-of-type(2) {
-      margin-top: 15px;
-      margin-left: 10px;
-      background-color: transparent;
-      border: 2px solid $primary;
-      color: $primary;
-    }
+  h3::before {
+    @include underline;
+    width: 50%;
+  }
+
+  @media (max-width: 767px) {
     h3::before {
-      @include underline;
+      left: 25%;
     }
   }
+
+  //   .aboutcontent {
+  //     flex-basis: 40%;
+  //     margin-left: 100px;
+  //     // align-self: center;
+  //     button:nth-of-type(2) {
+  //       margin-top: 15px;
+  //       margin-left: 10px;
+  //       background-color: transparent;
+  //       border: 2px solid $primary;
+  //       color: $primary;
+  //     }
+  //   }
 }

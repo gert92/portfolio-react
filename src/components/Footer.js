@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <Container>
-        <Row className="justify-content-md-center align-content-center">
+        <Row className="justify-content-center justify-content-md-center align-content-center">
           <div className="logo">
             <span>G.</span>
           </div>
@@ -17,7 +17,7 @@ const Footer = () => {
             Sed vestibulum.
           </p>
         </Row>
-        <Row className="justify-content-md-center align-content-center">
+        <Row className="justify-content-center align-content-center">
           <div className="social">
             <div className="socialcircle">
               <svg

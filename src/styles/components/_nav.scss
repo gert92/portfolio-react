@@ -1,5 +1,8 @@
 .nav {
   width: 100%;
+  // position: sticky;
+  position: fixed;
+  z-index: 2;
   background-color: $dark;
   //   height: 100px;
   color: $secondary;
@@ -21,6 +24,9 @@
         transform-origin: left top;
         transform: scale(1, 1);
       }
+      &:first-child {
+        margin-left: 0;
+      }
     }
     span::before {
       @include underline;
@@ -30,4 +36,19 @@
       transition: color 0.1s, transform 0.2s ease-in-out;
     }
   }
+}
+
+@media (max-width: 500px) {
+  .menu {
+    font-size: 1rem !important;
+    display: flex;
+    justify-items: center;
+    margin-bottom: 10px;
+  }
+}
+
+//JS
+
+.light {
+  background-color: $light;
 }

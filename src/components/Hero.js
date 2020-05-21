@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 
 const Hero = () => {
   return (
-    <div className="hero">
+    <div className="hero" id="home">
       <Container>
         <Row className="justify-content-md-between align-content-center">
           <div className="cta">

@@ -3,50 +3,76 @@
   .container {
     flex-direction: column;
     align-items: center;
-    padding: 50px 0;
+    padding: 100px 20px;
   }
   .head {
     text-align: center;
   }
+  h3 {
+    display: inline-block;
+  }
   h3::before {
     @include underline;
-    left: 44%;
+    width: 50%;
+    left: 25%;
   }
-  .imagegrid {
-    display: grid;
-    grid-template-columns: repeat(12, 2rem);
-    grid-template-rows: repeat(6, 2rem);
-    gap: 20px;
-    .featuredimage {
-      content: '';
-      border: 1px solid $primary;
-      grid-column: 1/7;
-      grid-row: 1/7;
-    }
-    .gridimage1 {
-      content: '';
-      border: 1px solid $primary;
-      grid-column: 7/10;
-      grid-row: 1/4;
-    }
-    .gridimage2 {
-      content: '';
-      border: 1px solid $primary;
-      grid-column: 10/13;
-      grid-row: 1/4;
-    }
 
-    .gridimage3 {
-      content: '';
-      border: 1px solid $primary;
-      grid-column: 7/10;
-      grid-row: 4/7;
-    }
-    .gridimage4 {
-      content: '';
-      border: 1px solid $primary;
-      grid-column: 10/13;
-      grid-row: 4/7;
-    }
+  .featuredimage {
+    content: '';
+    width: 208px;
+    height: 208px;
+    border: 1px solid $primary;
+    //   grid-column: 1/7;
+    //   grid-row: 1/7;
   }
+
+  .gridimage1 {
+    content: '';
+    width: 100px;
+    height: 100px;
+    border: 1px solid $primary;
+    margin-right: 8px;
+    // grid-column: 7/10;
+    // grid-row: 1/4;
+  }
+  .gridimage2 {
+    content: '';
+    width: 100px;
+    height: 100px;
+    border: 1px solid $primary;
+    // grid-column: 10/13;
+    // grid-row: 1/4;
+  }
+
+  .gridimage3 {
+    content: '';
+    width: 100px;
+    height: 100px;
+    border: 1px solid $primary;
+    margin-right: 8px;
+    // grid-column: 7/10;
+    // grid-row: 4/7;
+  }
+  .gridimage4 {
+    content: '';
+    width: 100px;
+    height: 100px;
+    border: 1px solid $primary;
+    // grid-column: 10/13;
+    // grid-row: 4/7;
+  }
+
+  //   .imagegrid {
+  //     display: grid;
+  //     grid-template-columns: repeat(12, 2rem);
+  //     grid-template-rows: repeat(6, 2rem);
+  //     gap: 20px;
+  //     // .featuredimage {
+  //     //   content: '';
+  //     //   border: 1px solid $primary;
+  //     //   //   grid-column: 1/7;
+  //     //   //   grid-row: 1/7;
+  //     // }
+
+  //   }
 }
