@@ -1,0 +1,52 @@
+.portfolio {
+  background-color: $dark;
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+  }
+  .head {
+    text-align: center;
+  }
+  h3::before {
+    @include underline;
+    left: 44%;
+  }
+  .imagegrid {
+    display: grid;
+    grid-template-columns: repeat(12, 2rem);
+    grid-template-rows: repeat(6, 2rem);
+    gap: 20px;
+    .featuredimage {
+      content: '';
+      border: 1px solid $primary;
+      grid-column: 1/7;
+      grid-row: 1/7;
+    }
+    .gridimage1 {
+      content: '';
+      border: 1px solid $primary;
+      grid-column: 7/10;
+      grid-row: 1/4;
+    }
+    .gridimage2 {
+      content: '';
+      border: 1px solid $primary;
+      grid-column: 10/13;
+      grid-row: 1/4;
+    }
+
+    .gridimage3 {
+      content: '';
+      border: 1px solid $primary;
+      grid-column: 7/10;
+      grid-row: 4/7;
+    }
+    .gridimage4 {
+      content: '';
+      border: 1px solid $primary;
+      grid-column: 10/13;
+      grid-row: 4/7;
+    }
+  }
+}

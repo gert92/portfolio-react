@@ -1,0 +1,104 @@
+$primary: #7bc043;
+$secondary: #c8dfe1;
+$light-gray: #7f8c8d;
+$dark: #343b43;
+$light: #3c454e;
+
+@mixin underline {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 5px;
+  width: 12%;
+  background-color: $primary;
+}
+
+body {
+  font-family: 'Poppins';
+}
+
+button {
+  padding: 10px;
+  width: 150px;
+  background-color: $primary;
+  border: none;
+  color: $secondary;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: 'Poppins';
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid $primary;
+}
+
+h2 {
+  color: $light-gray;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: $secondary;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  position: relative;
+}
+
+h6 {
+  font-size: 18px;
+  color: $secondary;
+}
+
+p {
+  color: $light-gray;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+label {
+  color: $light-gray;
+  text-transform: uppercase;
+}
+
+.logo {
+  color: $primary;
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.formrow {
+  width: 100%;
+}
+
+.formgroup {
+  display: flex;
+}
+
+.formitem {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  &:last-child {
+    margin-right: 0;
+  }
+  input,
+  textarea {
+    margin-top: 10px;
+    width: 100%;
+    background-color: $dark;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    color: $secondary;
+    font-family: 'Poppins';
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: $light-gray;
+    font-size: 12px;
+  }
+}

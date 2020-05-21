@@ -1,0 +1,33 @@
+.contact {
+  background-color: $light;
+  .container {
+    padding: 50px 0;
+    flex-direction: column;
+  }
+  h3 {
+    text-align: center;
+  }
+
+  h3::before {
+    @include underline;
+    left: 47.5%;
+    width: 4.5%;
+  }
+  .contactcontent {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    button {
+      width: 100%;
+    }
+  }
+  .contactinfo {
+    margin-right: 50px;
+    h6 {
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 30px;
+    }
+  }
+}

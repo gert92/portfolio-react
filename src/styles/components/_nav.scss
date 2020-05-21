@@ -1,0 +1,33 @@
+.nav {
+  width: 100%;
+  background-color: $dark;
+  //   height: 100px;
+  color: $secondary;
+  .container {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menu {
+    font-size: 1.2rem;
+    font-weight: 500;
+    span {
+      position: relative;
+      margin-left: 30px;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+      }
+      &:hover::before {
+        transform-origin: left top;
+        transform: scale(1, 1);
+      }
+    }
+    span::before {
+      @include underline;
+      width: 60%;
+      transform-origin: right top;
+      transform: scale(0, 1);
+      transition: color 0.1s, transform 0.2s ease-in-out;
+    }
+  }
+}

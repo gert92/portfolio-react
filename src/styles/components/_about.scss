@@ -1,0 +1,43 @@
+.about {
+  background-color: $light;
+  .container {
+    padding: 100px 0;
+  }
+  .aboutimage {
+    display: grid;
+    grid-template-columns: repeat(8, 2.5rem);
+    grid-template-rows: repeat(12, 2.5rem);
+    img {
+      object-fit: fill;
+      height: 100%;
+      width: auto;
+      grid-column: 2/9;
+      grid-row: 1/12;
+      z-index: 1;
+    }
+    .imageborder {
+      content: '';
+      height: 100%;
+      width: 100%;
+      border: 5px solid $primary;
+      grid-column: 1/8;
+      grid-row: 2/13;
+    }
+  }
+
+  .aboutcontent {
+    flex-basis: 40%;
+    margin-left: 100px;
+    align-self: center;
+    button:nth-of-type(2) {
+      margin-top: 15px;
+      margin-left: 10px;
+      background-color: transparent;
+      border: 2px solid $primary;
+      color: $primary;
+    }
+    h3::before {
+      @include underline;
+    }
+  }
+}
