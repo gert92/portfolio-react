@@ -37,8 +37,8 @@ const About = ({ aboutRef }) => {
             new things and mastering old ones.
           </p>
 
-          <button className="btn btn--solid">View Works</button>
-          <button className="btn btn--outlined">Download CV</button>
+          {/* <button className="btn btn--solid">View Works</button>
+          <button className="btn btn--outlined">Download CV</button> */}
         </div>
       </div>
     </div>

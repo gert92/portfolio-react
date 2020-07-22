@@ -17,7 +17,7 @@ const Contact = ({ contactRef }) => {
       },
     };
     try {
-      await axios.post('http://localhost:5000/email', body, config);
+      await axios.post('https://gertport.herokuapp.com/email', body, config);
       setFormData({
         name: '',
         phone: '',
