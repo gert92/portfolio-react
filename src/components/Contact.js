@@ -1,91 +1,131 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const Contact = () => {
+const Contact = ({ contactRef }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    const body = formData;
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      await axios.post('http://localhost:5000/email', body, config);
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   return (
-    <div className="contact" id="contacts">
-      <Container>
-        <Row className="justify-content-md-center align-content-center mb-3">
-          <Col className="d-flex justify-content-center align-content-center">
-            <h3>Contact Me</h3>
-          </Col>
-        </Row>
-        <Row>
-          {/* <div className="contactcontent"> */}
-          <Col
-            sm={12}
-            md={5}
-            className="d-flex justify-content-center justify-content-md-start align-content-center"
-          >
-            <div className="contactinfo">
-              <h6>Contact info</h6>
-              <p>gert.mosin@gmail.com</p>
-              <p>+372 56266159</p>
-              <p>www.gertmosin.ee</p>
+    <div className="contact" id="contacts" ref={contactRef}>
+      <h2 className="contact__title">Contact Me</h2>
+      <div className="contact__content">
+        {/* <div className="contact__content__info">
+          <h3>Contact info</h3>
+          <p>
+            {' '}
+            <svg>
+              <use xlinkHref={`${icons}#icon-mail`}></use>
+            </svg>
+            gert.mosin@gmail.com
+          </p>
+          <p>
+            {' '}
+            <svg>
+              <use xlinkHref={`${icons}#icon-phone`}></use>
+            </svg>
+            +372 56266159
+          </p>
+          <p>
+            {' '}
+            <svg>
+              <use xlinkHref={`${icons}#icon-globe`}></use>
+            </svg>
+            www.gertmosin.ee
+          </p>
+        </div> */}
+        <form className="form contact__content__form" onSubmit={sendEmail}>
+          <div className="form__row">
+            <div className="form__item">
+              <label htmlFor="name">Name</label>
+              <input
+                id="name"
+                type="text"
+                aria-label="Name"
+                placeholder="Type your name"
+                name="name"
+                onChange={handleChange}
+                value={formData.name}
+              />
             </div>
-          </Col>
-          <Col sm={12} md={7}>
-            <div className="contactform">
-              <form action="#">
-                <div className="formrow">
-                  <div className="formitem">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      id="name"
-                      type="text"
-                      aria-label="Name"
-                      placeholder="Type your name"
-                    />
-                  </div>
-                </div>
-                <div className="formrow">
-                  <div className="formgroup">
-                    <div className="formitem">
-                      <label htmlFor="phone">Phone Number</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        aria-label="Phone"
-                        inputMode="tel"
-                        placeholder="Type your phone number"
-                      />
-                    </div>
-                    <div className="formitem">
-                      <label htmlFor="email">Email</label>
-                      <input
-                        id="email"
-                        type="email"
-                        aria-label="Email"
-                        inputMode="email"
-                        placeholder="Type your email address"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="formrow">
-                  <div className="formitem">
-                    <label htmlFor="message">Your Message</label>
-                    <textarea
-                      id="message"
-                      type="text"
-                      aria-label="Message"
-                      placeholder="Type your message here"
-                      cols="50%"
-                      rows="12"
-                    />
-                  </div>
-                </div>
-                <div className="formrow">
-                  <button>Send Message</button>
-                </div>
-              </form>
+          </div>
+          <div className="form__row">
+            <div className="form__group">
+              <div className="form__item">
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  aria-label="Phone"
+                  inputMode="tel"
+                  placeholder="Type your phone number"
+                  name="phone"
+                  onChange={handleChange}
+                  value={formData.phone}
+                />
+              </div>
+              <div className="form__item">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  aria-label="Email"
+                  inputMode="email"
+                  placeholder="Type your email address"
+                  name="email"
+                  onChange={handleChange}
+                  value={formData.email}
+                />
+              </div>
             </div>
-          </Col>
-          {/* </div> */}
-        </Row>
-      </Container>
+          </div>
+          <div className="form__row">
+            <div className="form__item">
+              <label htmlFor="message">Your Message</label>
+              <textarea
+                id="message"
+                type="text"
+                aria-label="Message"
+                placeholder="Type your message here"
+                cols="50%"
+                rows="12"
+                name="message"
+                onChange={handleChange}
+                value={formData.message}
+              />
+            </div>
+          </div>
+          <div className="form__row">
+            <button className="btn btn--solid">Send Message</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

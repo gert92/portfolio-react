@@ -1,56 +1,46 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React, { useEffect, useState } from 'react';
 
-const About = () => {
+const About = ({ aboutRef }) => {
+  const [animate, setAnimate] = useState('');
+  useEffect(() => {
+    window.addEventListener('scroll', (e) => {
+      const scroll = window.scrollY;
+      const startHeight = window.innerHeight;
+      if (scroll > startHeight / 3.5) {
+        setAnimate('about__image--animate');
+      }
+    });
+  }, []);
+
   return (
     <div className="about" id="about">
-      <Container>
-        <Row className="d-flex">
-          <Col
-            className="d-flex justify-content-center justify-content-md-start align-content-center mb-5 mb-md-0"
-            sm={12}
-            md={6}
-          >
-            <div className="aboutimage">
-              <img src={require('../images/photo.jpg')} alt="Gert Mosin" />
-              <div className="imageborder"></div>
-            </div>
-          </Col>
-          <Col
-            className="d-flex flex-column justify-content-center align-content-center align-items-center align-items-md-start p-4"
-            sm={12}
-            md={6}
-          >
-            <Row>
-              {/* <div className="aboutcontent"> */}
-              <h3 className="mb-3">About Me</h3>
-            </Row>
-            <Row>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                sollicitudin commodo sem, ac luctus sapien rutrum ac. Vivamus
-                ornare arcu id rhoncus porta. Etiam lacus nibh, vestibulum vel
-                maximus non, aliquet eget felis. Pellentesque interdum tempus
-                eleifend.{' '}
-              </p>
-            </Row>
-            <Row className="mb-4">
-              <p>
-                Cras nec leo eget nulla facilisis tempus id non est. Nulla
-                facilisi. Sed vestibulum, justo a aliquet tincidunt, dolor
-                sapien suscipit dolor, vel feugiat ligula tellus id lectus.
-              </p>
-            </Row>
-            <Row>
-              <button className="mr-2">View Works</button>
-              <button>Download CV</button>
-            </Row>
-            {/* </div> */}
-          </Col>
-        </Row>
-      </Container>
+      <div className="about__container">
+        <div className="about__image">
+          <img
+            className={`${animate}`}
+            src={require('../images/gert.jpg')}
+            alt="Gert Mosin"
+          />
+          <div className="about__image--border"></div>
+        </div>
+
+        <div className="about__content">
+          <h2 className="about__content__title">About Me</h2>
+          <p className="about__content__p">
+            I am a self-taught programmer. I have been learning to code for a a
+            year now. My main focus of learning is on ReactJS and NodeJS.{' '}
+          </p>
+          <p className="about__content__p">
+            I have been familiar with technology and computer since i was a
+            little kid. I found programming for myself about a year ago and i am
+            really enjoying it. I am learning it every day after work and trying
+            new things and mastering old ones.
+          </p>
+
+          <button className="btn btn--solid">View Works</button>
+          <button className="btn btn--outlined">Download CV</button>
+        </div>
+      </div>
     </div>
   );
 };

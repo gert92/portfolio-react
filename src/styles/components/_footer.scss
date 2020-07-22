@@ -1,45 +1,51 @@
 .footer {
   background-color: $light;
-  //   max-height: 400px;
-  //   padding-top: 100px;
-  .container {
-    flex-direction: column;
-    align-items: center;
-    padding: 100px 30px;
+  grid-column: full-start/full-end;
+  display: grid;
+  grid-template-columns: $overall-grid;
+  justify-content: center;
+
+  &__head {
+    margin-top: 5rem;
+    text-align: center;
+    grid-column: col-start 1 / col-end 8;
   }
+
   .logo {
-    margin-bottom: 50px;
+    margin-bottom: 3rem;
   }
 
   .social {
+    grid-column: col-start 1 / col-end 8;
     display: flex;
-    margin-bottom: 50px;
-  }
-
-  .socialcircle {
-    display: flex;
-    background-color: $dark;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+    margin-bottom: 10rem;
     justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    cursor: pointer;
-    &:last-child {
-      margin-right: 0;
-    }
-    svg {
-      fill: $secondary;
+    &--circle {
+      display: flex;
+      position: relative;
+      background-color: $dark;
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      justify-content: center;
+      align-items: center;
+      margin-right: 20px;
+      cursor: pointer;
+      &:last-child {
+        margin-right: 0;
+      }
+      svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: $secondary;
+      }
     }
   }
 
   .copyright {
-    display: flex;
-    padding: 30px;
-    // height: 100px;
-    justify-content: center;
-    align-self: center;
+    grid-column: full-start / full-end;
+    text-align: center;
+    padding-top: 2rem;
     border-top: 1px solid rgba($color: $light-gray, $alpha: 0.2);
     p {
       margin: 0;
@@ -50,3 +56,56 @@
     }
   }
 }
+
+// .footer {
+//   background-color: $light;
+//   //   max-height: 400px;
+//   //   padding-top: 100px;
+//   grid-column: full-start/full-end;
+
+//   .logo {
+//     margin-bottom: 50px;
+//   }
+
+//   .social {
+//     display: flex;
+//     margin-bottom: 50px;
+//   }
+
+//   .socialcircle {
+//     display: flex;
+//     position: relative;
+//     background-color: $dark;
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 50px;
+//     justify-content: center;
+//     align-items: center;
+//     margin-right: 20px;
+//     cursor: pointer;
+//     &:last-child {
+//       margin-right: 0;
+//     }
+//     svg {
+//       fill: $secondary;
+//       width: 100%;
+//       height: 100%;
+//     }
+//   }
+
+//   .copyright {
+//     display: flex;
+//     padding: 30px;
+//     // height: 100px;
+//     justify-content: center;
+//     align-self: center;
+//     border-top: 1px solid rgba($color: $light-gray, $alpha: 0.2);
+//     p {
+//       margin: 0;
+//       font-size: 14px;
+//     }
+//     span {
+//       color: $primary;
+//     }
+//   }
+// }

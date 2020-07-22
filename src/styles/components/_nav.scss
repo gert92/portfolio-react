@@ -1,49 +1,54 @@
 .nav {
-  width: 100%;
-  // position: sticky;
-  position: fixed;
-  z-index: 2;
   background-color: $dark;
-  //   height: 100px;
-  color: $secondary;
-  .container {
-    justify-content: space-between;
-    align-items: center;
+  position: sticky;
+  top: 0;
+  grid-column: full-start/full-end;
+  display: grid;
+  grid-template-columns: $overall-grid;
+  align-items: center;
+  z-index: 10;
+
+  .logo {
+    grid-column: col-start 1 / col-end 2;
+    justify-self: start;
   }
   .menu {
-    font-size: 1.2rem;
-    font-weight: 500;
-    span {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    column-gap: 2rem;
+    grid-column: col-start 3 / col-end 8;
+    justify-self: end;
+
+    &__button:link,
+    &__button:visited {
+      text-decoration: none;
+      color: $secondary;
+      font-size: 1.6rem;
       position: relative;
-      margin-left: 30px;
-      cursor: pointer;
-      &:hover {
-        color: $primary;
-      }
-      &:hover::before {
-        transform-origin: left top;
-        transform: scale(1, 1);
-      }
-      &:first-child {
-        margin-left: 0;
-      }
     }
-    span::before {
+    &__button::before {
       @include underline;
-      width: 60%;
       transform-origin: right top;
       transform: scale(0, 1);
       transition: color 0.1s, transform 0.2s ease-in-out;
+      width: 60%;
     }
-  }
-}
 
-@media (max-width: 500px) {
-  .menu {
-    font-size: 1rem !important;
-    display: flex;
-    justify-items: center;
-    margin-bottom: 10px;
+    &__button:hover {
+      color: $primary;
+      &::before {
+        transform-origin: left top;
+        transform: scale(1, 1);
+      }
+    }
+    &__button--active {
+      color: $primary !important;
+      &::before {
+        transform-origin: left top;
+        transform: scale(1, 1);
+      }
+    }
   }
 }
 

@@ -1,53 +1,59 @@
 import React, { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-const Nav = () => {
+const Nav = ({ active }) => {
   const [navbar, setNavbar] = useState('dark');
   useEffect(() => {
     document.addEventListener('scroll', () => {
-      const backgroundcolor = window.scrollY < 100 ? 'dark' : 'light';
+      const backgroundcolor = window.scrollY < 1 ? 'dark' : 'light';
       setNavbar(backgroundcolor);
     });
-  });
+    // for (let i = 0; i < menu.current.children.length; i++) {
+    //   if (active === menu.current.children[i].children[0].name) {
+    //     eval(menu.current.children[i].children[0].name).current.className =
+    //       'menu__button menu__button--active';
+    //   } else {
+    //     eval(menu.current.children[i].children[0].name).current.className =
+    //       'menu__button';
+    //   }
+    // }
+
+    // if (active === 'home') {
+    //   home.current.className = 'menu__button menu__button--active';
+    // } else if (active === 'about') {
+    //   about.current.className = 'menu__button menu__button--active';
+    // }
+  }, [active]);
 
   return (
-    <div className={`nav ${navbar}`}>
-      <Container>
-        <Row className="justify-content-md-between align-items-center">
-          <Col
-            md={4}
-            sm={12}
-            className="d-flex justify-content-center justify-content-md-start align-items-center"
-          >
-            <div className="logo">
-              <span>G.</span>
-            </div>
-          </Col>
-          <Col
-            className="d-flex justify-content-md-end justify-content-center"
-            md={8}
-            sm={12}
-          >
-            <div className="menu">
-              <span>
-                <a href="#home">Home</a>
-              </span>
-              <span>
-                <a href="#about">About Me</a>
-              </span>
-              <span>
-                <a href="#portfolio">Portfolio</a>
-              </span>
-              <span>
-                <a href="#contacts">Contact</a>
-              </span>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <nav className={`nav ${navbar}`}>
+      <div className="logo">
+        <span>G.</span>
+      </div>
+
+      <ul className="menu">
+        <li>
+          <a href="#home" className="menu__button" name="home">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#portfolio" className="menu__button" name="port">
+            CV
+          </a>
+        </li>
+        <li>
+          <a href="#about" className="menu__button" name="about">
+            About Me
+          </a>
+        </li>
+
+        <li>
+          <a href="#contacts" className="menu__button" name="contact">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

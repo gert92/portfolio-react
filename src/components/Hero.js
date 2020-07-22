@@ -1,20 +1,16 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 
-const Hero = () => {
+const Hero = ({ heroRef }) => {
   return (
-    <div className="hero" id="home">
-      <Container>
-        <Row className="justify-content-md-between align-content-center">
-          <div className="cta">
-            <h6>Hello</h6>
-            <h1>I’m Gert</h1>
-            <h2>Learning web development with MERN stack</h2>
-            <button>Hire Me</button>
-          </div>
-        </Row>
-      </Container>
+    <div className="hero" id="home" ref={heroRef}>
+      <div className="hero__cta">
+        <h4>Hello</h4>
+        <h1>I’m Gert</h1>
+        <h2>Web developement with MERN stack</h2>
+        <a href="#portfolio">
+          <button className="btn btn--solid">View CV</button>
+        </a>
+      </div>
     </div>
   );
 };
