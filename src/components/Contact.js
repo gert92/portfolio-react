@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Alert from './Alert';
 
-const Contact = ({ contactRef }) => {
+const Contact = () => {
+  const [disabled, setDisabled] = useState(false);
+  const [alert, setAlert] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     message: '',
   });
+
+  const mailer = () => {
+    if (disabled) {
+      return (
+        <button disabled className="btn btn--disabled">
+          Loading...
+        </button>
+      );
+    } else {
+      return <button className="btn btn--solid">Send Message</button>;
+    }
+  };
   const sendEmail = async (e) => {
     e.preventDefault();
     const body = formData;
@@ -17,13 +32,25 @@ const Contact = ({ contactRef }) => {
       },
     };
     try {
-      await axios.post('https://gertport.herokuapp.com/email', body, config);
+      setDisabled(true);
+      const res = await axios.post(
+        'https://gertport.herokuapp.com/email',
+        body,
+        config
+      );
       setFormData({
         name: '',
         phone: '',
         email: '',
         message: '',
       });
+      if (res.data.success) {
+        setDisabled(false);
+        setAlert(true);
+        setTimeout(() => {
+          setAlert(false);
+        }, 2000);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +60,8 @@ const Contact = ({ contactRef }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
-    <div className="contact" id="contacts" ref={contactRef}>
+    <div className="contact" id="contacts">
+      {alert ? <Alert message="Message sent successfully" /> : null}
       <h2 className="contact__title">Contact Me</h2>
       <div className="contact__content">
         {/* <div className="contact__content__info">
@@ -121,9 +149,7 @@ const Contact = ({ contactRef }) => {
               />
             </div>
           </div>
-          <div className="form__row">
-            <button className="btn btn--solid">Send Message</button>
-          </div>
+          <div className="form__row">{mailer()}</div>
         </form>
       </div>
     </div>

@@ -47,6 +47,7 @@ a {
 }
 
 .container {
+  position: relative;
   display: grid;
   grid-template-rows: auto 90vh repeat(4, min-content);
   grid-template-columns: $overall-grid;
@@ -86,6 +87,20 @@ a {
   &--outlined {
     background-color: transparent;
     color: $primary;
+  }
+  &--disabled {
+    &:hover,
+    &:focus {
+      transform: none;
+      box-shadow: none;
+    }
+    &:active {
+      transform: none;
+      box-shadow: none;
+    }
+    background-color: lighten($color: $primary, $amount: 30);
+    outline: none;
+    color: $dark;
   }
 }
 

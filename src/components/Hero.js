@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Hero = ({ heroRef }) => {
+const Hero = () => {
   return (
-    <div className="hero" id="home" ref={heroRef}>
+    <div className="hero" id="home">
       <div className="hero__cta">
+        {/* <span className="hero--gert">GERT</span>
+        <span className="hero--mosin">MOSIN</span> */}
         <h4>Hello</h4>
         <h1>I’m Gert</h1>
         <h2>Web developement with MERN stack</h2>

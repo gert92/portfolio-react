@@ -1,0 +1,14 @@
+.alert {
+  background-color: $primary;
+  position: fixed;
+  min-height: 4rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  left: 50%;
+  top: 8%;
+  transform: translate(-50%);
+  z-index: 1000;
+}

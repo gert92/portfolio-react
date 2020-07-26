@@ -27,14 +27,14 @@ const About = ({ aboutRef }) => {
         <div className="about__content">
           <h2 className="about__content__title">About Me</h2>
           <p className="about__content__p">
-            I am a self-taught programmer. I have been learning to code for a a
+            I am a self-taught programmer. I have been learning to code for a
             year now. My main focus of learning is on ReactJS and NodeJS.{' '}
           </p>
           <p className="about__content__p">
-            I have been familiar with technology and computer since i was a
-            little kid. I found programming for myself about a year ago and i am
-            really enjoying it. I am learning it every day after work and trying
-            new things and mastering old ones.
+            I have been learning technology and computers since i was a little
+            kid. I found programming for myself about a year ago and i am really
+            enjoying it. I am learning it every day after work and trying new
+            things and mastering old ones.
           </p>
 
           {/* <button className="btn btn--solid">View Works</button>
