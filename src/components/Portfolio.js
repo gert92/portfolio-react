@@ -242,7 +242,9 @@ const Portfolio = ({ portfolioRef }) => {
             ></path>
           </svg>
         </div>
-        <button className="btn btn--solid">Contact</button>
+        <a href="#contact">
+          <button className="btn btn--solid">Contact</button>
+        </a>
       </div>
     </div>
   );
